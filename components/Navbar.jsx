@@ -1,9 +1,18 @@
+import Link from "next/link";
+import { AiOutlineShopping } from "react-icons/ai";
 
 const Navbar = () => {
     return (
-        <>
-            Navbar
-        </>
+        <div className="navbar-container">
+            <p className="logo">
+                <Link href={"/"}>Headphones</Link>
+            </p>
+
+            <button type="button" className="cart-icon" onClick={""}>
+                <AiOutlineShopping />
+                <span className="cart-item-gty">1</span>
+            </button>
+        </div>
     )
 }
 
