@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import {urlFor} from "../lib/client";
+import { urlFor } from "../lib/client";
 
-const HeroBanner = ({heroBanner}) => {
+const HeroBanner = ({ heroBanner }) => {
     return (
         <div className="hero-banner-container">
             <div>

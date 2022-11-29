@@ -6,6 +6,7 @@ body,
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
+  user-select: none;
 
 }
 
@@ -290,6 +291,7 @@ span.text-red {
 
 .banner-desc .right {
   line-height: 1.4;
+  order:1
 }
 
 .banner-desc .right h3 {
@@ -614,11 +616,11 @@ span.text-red {
 }
 
 .quantity-desc .minus {
-  border-right: 1px solid gray;
   color: #f02d34;
 }
 
 .quantity-desc .num {
+  border-left: 1px solid gray;
   border-right: 1px solid gray;
   font-size: 20px;
 }

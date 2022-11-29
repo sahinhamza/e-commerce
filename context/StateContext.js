@@ -11,7 +11,7 @@ export const StateContext = ({ children }) => {
     const [qty, setQty] = useState(1);
 
     let foundProduct;
-    let index;
+    let idx;
 
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
@@ -30,28 +30,32 @@ export const StateContext = ({ children }) => {
 
         setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
-
+       
         if (checkProductInCart) {
+     
             const updatedCartItems = cartItems.map((cartProduct) => {
-                if (cartProduct._id === product._id) return {
-                    ...cartProduct,
-                    quantity: cartProduct.quantity + quantity
+                if (cartProduct._id === product._id){
+                    return {
+                        ...cartProduct,
+                        quantity: cartProduct.quantity + quantity
+                    }
+                }else{
+                    return {
+                        ...cartProduct
+                    }
                 }
             })
-
             setCartItems(updatedCartItems);
         } else {
-            product.quantity = quantity;
-
-            setCartItems([...cartItems, { ...product }]);
+            setCartItems([...cartItems, { ...product, quantity }]);
         }
-
+      
         toast.success(`${qty} ${product.name} added to the cart.`);
     };
 
     const toggleCartItemQuanitity = (id, value) => {
         foundProduct = cartItems.find((item) => item._id === id)
-        index = cartItems.findIndex((product) => product._id === id);
+        idx = cartItems.findIndex((product) => product._id === id);
         const newCartItems = cartItems.filter((item) => item._id !== id)
 
         if (value === 'inc') {
